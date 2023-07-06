@@ -1,8 +1,9 @@
+info.onCountdownEnd(function () {
+    game.splash("GAME OVER")
+})
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     sprites.destroy(MRender)
-    game.gameOver(false)
-    game.setGameOverMessage(false, "GAME OVER!")
-    game.reset()
+    info.startCountdown(1)
 })
 let MRender: Sprite = null
 scene.setBackgroundColor(2)
@@ -51,7 +52,7 @@ let Menemy = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Enemy)
-Menemy.setVelocity(10, 27)
-Menemy.setPosition(7, 108)
-MRender.setVelocity(100, 100)
 Menemy.follow(MRender)
+Menemy.setPosition(7, 108)
+Menemy.setVelocity(50, 50)
+MRender.setVelocity(100, 100)
